@@ -4,9 +4,13 @@
 
 <%= render partial: "zebra/giraffe" %>
 
+<%= render partial: "zebra/elephant", locals: { person: "Alice" } %>
+
 <hr>
 
 <%= render partial: "zebra/giraffe" %>
+
+<%= render partial: "zebra/elephant", locals: { person: "Bob" } %>
 
 <div>
   <%= link_to "New movie", new_movie_path %>
