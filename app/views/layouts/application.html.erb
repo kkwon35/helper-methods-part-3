@@ -53,17 +53,22 @@
           </li>
         </ul>
       </div>
-
-
-      <div style="color: green;">
-        <%= notice %>
-      </div>
-
-      <div style="color: red;">
-        <%= alert %>
-      </div>
     </nav>
+
+    <div class="container mt-3">
+      <% if notice.present? %>
+        <div class="alert alert-success" role="alert" div style="color: green;">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert" div style="color: red;">
+          <%= alert %>
+        </div>
+      <% end %>
     
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
