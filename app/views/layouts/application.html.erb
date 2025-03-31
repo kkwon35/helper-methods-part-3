@@ -17,6 +17,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= render partial: "shared/cdn_assets" %>
+
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
@@ -33,41 +35,10 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <!--<a class="navbar-brand" href="#">Navbar</a>-->
-        <!--<a class="navbar-brand" href="/">Helper Methods 3</a>-->
-        <%= link_to "Helper Methods 3", root_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <%= render partial: "shared/navbar" %>
 
     <div class="container mt-3">
-      <% if notice.present? %>
-        <div class="alert alert-success" role="alert" div style="color: green;">
-          <%= notice %>
-        </div>
-      <% end %>
-
-      <% if alert.present? %>
-        <div class="alert alert-danger" role="alert" div style="color: red;">
-          <%= alert %>
-        </div>
-      <% end %>
-    
+      <%= render partial: "shared/flash_messages" %>
       <%= yield %>
     </div>
   </body>
